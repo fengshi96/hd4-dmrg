@@ -1,0 +1,22 @@
+input
+{
+LLX = 64
+Orbitals = 1
+JExch = JJJJJJ
+Lambda = LLLLLL
+Hz = HHHHHH
+BSzPinning = -1E-5
+
+totalSweeps=12
+table_name
+     {
+     maxm   minm  cutoff  niter  noise
+     100     100    1E-7    20     1E-8
+     100     100    1E-7    10     1E-9
+     400     100    1E-7    5      0
+     500     100    1E-7    3      0
+     600     100    1E-7    3      0
+     800     100    1E-7    3      0
+     }
+
+}
