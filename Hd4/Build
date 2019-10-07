@@ -1,0 +1,8 @@
+#string="-m64 -std=c++11 -w -fPIC -I. -I/home/feng.934/0.Codes/itensor -I/home/feng.934/0.Codes/ -I/opt/intel/mkl/include  -O3 -DNDEBUG -Wall main.cc -o dmrg -L/home/feng.934/0.Codes/itensor/lib -litensor -L/opt/intel/mkl/lib/intel64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_rt -lmkl_core -liomp5 -lpthread"
+
+string="-m64 -std=c++11 -w -fPIC -I. -I/home/feng.934/Codes/0.Codes/itensor -I/home/feng.934/Codes/0.Codes/ -I/opt/intel/mkl/include  -O3 -DNDEBUG -Wall main.cc -o dmrg -L/home/feng.934/Codes/0.Codes/itensor/lib -litensor -L/opt/intel/mkl/lib/intel64 -L/usr/local/Wolfram/Mathematica/11.1.1/SystemFiles/Libraries/Linux-x86-64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_rt -lmkl_core -liomp5 -lpthread"
+
+echo "g++ $string"
+g++ $string
+
+
