@@ -140,15 +140,6 @@ int main(int argc, char* argv[]) {
     // ----------------------------------
     // exit(1);
 
-    /*
-    std::cout << "Connx = \n" << Connx << " \n "
-              << "Conny = \n" << Conny << " \n "
-              << "Connz = \n" << Connz << " \n ";
-
-    std::cout << "Sorx = \n" << Sorx << " \n "
-              << "Sory = \n" << Sory << " \n "
-              << "Sorz = \n" << Sorz << " \n ";
-    */
 
     auto H = MPO(ampo);
 
@@ -241,79 +232,6 @@ int main(int argc, char* argv[]) {
 
 
     printfln("\nTotal Sz, Lz, Jz = %.12f %.12f %.12f",SzTot/(N-20),LzTot/(N-20),JzTot/(N-20));
-
-
-
-
-
-//     // Sum total S.S to check thata it's
-//     // equal to ground state energy
-//     outfile.open("Observables.dat", std::ios_base::app);
-//     Real totalSdS = 0.;
-//     println("\nj S_{i}.S_{i+1} = ");
-//     for(int b = 1; b < N; ++b) {
-
-//         psi.position(b);
-//         ITensor bondket = psi.A(b)*psi.A(b+1);
-//         ITensor bondbra = dag(prime(bondket,Site));
-
-//         ITensor pmop = 0.5*sites.op("S+",b)*sites.op("S-",b+1);
-//         ITensor mpop = 0.5*sites.op("S-",b)*sites.op("S+",b+1);
-//         ITensor zzop = sites.op("Sz",b)*sites.op("Sz",b+1);
-
-//         auto zz = (bondbra*zzop*bondket).cplx();
-//         auto xx = (bondbra*pmop*bondket).cplx();
-//         auto yy = (bondbra*mpop*bondket).cplx();
-
-//         printfln("%d %.12f %.12f %.12f",b,xx.real(), yy.real(), zz.real());
-//         totalSdS += xx.real()+yy.real()+zz.real();
-//     }
-
-//     printfln("\nSum of S.S = %.12f",totalSdS);
-//     printfln("Ground state energy from DMRG = %.12f",energy);
-
-
-
-//     Eigen::MatrixXd SxSx(N,N), SySy(N,N), SzSz(N,N);
-//     SxSx.setZero(); SySy.setZero(); SzSz.setZero();
-//     // http://itensor.org/docs.cgi?page=formulas/correlator_mps
-//     // Given an MPS or IQMPS called "psi",
-//     // constructed from a SiteSet "sites"
-//     for(int i=1; i<=N; i++) {
-//         auto op_i = sites.op("Sx",i);
-//         //below we will assume j > i
-//         psi.position(i); //'gauge' the MPS to site i
-
-//         for(int j=i+1; j<=N;j++) {
-
-//             if(j>N) continue;
-//             std::cout << i << "-" << j << std::endl;
-
-////             auto op_j = sites.op("Sx",j);
-
-////             //psi.Anc(1) *= psi.A(0); //Uncomment if doing iDMRG calculation
-////             //index linking i to i+1:
-////             auto ir = commonIndex(psi.A(i),psi.A(i+1),Link);
-////             auto C = psi.A(i)*op_i*dag(prime(psi.A(i),Site,ir));
-////             for(int k = i+1; k < j; ++k) {
-////                 C *= psi.A(k);
-////                 C *= dag(prime(psi.A(k),Link));
-////             }
-
-////             C *= psi.A(j);
-////             C *= op_j;
-
-////             auto jl = commonIndex(psi.A(j),psi.A(j-1),Link); //index linking j to j-1:
-////             C *= dag(prime(psi.A(j),jl,Site));
-
-////             auto result = C.real();                            // or C.cplx() if expecting complex
-////             SxSx(i-1,j-1) = result;                            // std::cout << i << "-" << j << " ==> " << result << std::endl;
-
-//         }
-//     }
-
-//     std::cout << std::setprecision(5);
-//     std::cout << "SxSx = \n" << SxSx << " \n" << std::endl;
 
 
 
